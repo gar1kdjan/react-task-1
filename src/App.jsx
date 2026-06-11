@@ -1,3 +1,4 @@
+import { createElement, Fragment } from "react";
 import reactLogo from "./assets/react.svg";
 import viteLogo from "./assets/vite.svg";
 import "./App.css";
@@ -7,36 +8,74 @@ function App() {
   const currentYear = new Date().getFullYear();
 
   // Декларативный стиль
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
+  return createElement(
+    Fragment,
+    null,
 
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
+    createElement(
+      "div",
+      null,
 
-      <h1>Vite + React</h1>
+      createElement(
+        "a",
+        {
+          href: "https://vite.dev",
+          target: "_blank",
+          rel: "noreferrer",
+        },
+        createElement("img", {
+          src: viteLogo,
+          className: "logo",
+          alt: "Vite logo",
+        }),
+      ),
 
-      <div className="card">
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
+      createElement(
+        "a",
+        {
+          href: "https://react.dev",
+          target: "_blank",
+          rel: "noreferrer",
+        },
+        createElement("img", {
+          src: reactLogo,
+          className: "logo react",
+          alt: "React logo",
+        }),
+      ),
+    ),
 
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+    createElement("h1", null, "Vite + React"),
 
-      <a href="https://react.dev" target="_blank">
-        Learn React
-      </a>
+    createElement(
+      "div",
+      { className: "card" },
+      createElement(
+        "p",
+        null,
+        "Edit ",
+        createElement("code", null, "src/App.jsx"),
+        " and save to test HMR",
+      ),
+    ),
 
-      <footer>{currentYear}</footer>
-    </>
+    createElement(
+      "p",
+      { className: "read-the-docs" },
+      "Click on the Vite and React logos to learn more",
+    ),
+
+    createElement(
+      "a",
+      {
+        href: "https://react.dev",
+        target: "_blank",
+        rel: "noreferrer",
+      },
+      "Learn React",
+    ),
+
+    createElement("footer", null, currentYear),
   );
 }
 
